@@ -2,6 +2,7 @@
 
 namespace Gilbite\OOExercise2\Domain\Order;
 
+use Gilbite\OOExercise2\Domain\Order\FilteringSpec\FilteringSpec;
 use Gilbite\OOExercise2\Domain\Order\Summarizer\Summarizer;
 
 class Orders
@@ -26,6 +27,18 @@ class Orders
         }
 
         return $summarizer->result();
+    }
+
+    public function select(FilteringSpec $spec)
+    {
+        $tmp = [];
+        foreach ($this->orders as $order) {
+            if ($spec->isSatisfiedBy($order)) {
+                $tmp[] = $order;
+            }
+        }
+
+        return new static($tmp);
     }
 }
 
