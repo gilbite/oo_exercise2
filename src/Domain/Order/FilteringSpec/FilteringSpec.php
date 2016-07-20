@@ -3,6 +3,7 @@
 namespace Gilbite\OOExercise2\Domain\Order\FilteringSpec;
 
 use Gilbite\OOExercise2\Domain\Order\Order;
+use Gilbite\OOExercise2\Domain\Order\Orders;
 use Gilbite\OOExercise2\Domain\Order\Repository;
 
 interface FilteringSpec

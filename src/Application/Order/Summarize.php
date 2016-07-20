@@ -18,9 +18,9 @@ class Summarize
 
     public function sumAmount($from, $to)
     {
-        $range    = new PlacedAtBetween(new \DateTimeImmutable($from), new \DateTimeImmutable($to));
-        $orders   = $range->satisfyingOrdersFrom($this->orderRepository);
-        $currency = $orders->summarize(new AmountTotal());
+        $filterSpec = new PlacedAtBetween(new \DateTimeImmutable($from), new \DateTimeImmutable($to));
+        $orders     = $filterSpec->satisfyingOrdersFrom($this->orderRepository);
+        $currency   = $orders->summarize(new AmountTotal());
 
         return $currency();
     }
