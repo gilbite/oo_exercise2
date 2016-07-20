@@ -2,7 +2,7 @@
 
 namespace Gilbite\OOExercise2\Application\Order;
 
-use Gilbite\OOExercise2\Domain\Order\Datetime\Range;
+use Gilbite\OOExercise2\Domain\Order\FilteringSpec\PlacedAtBetween;
 use Gilbite\OOExercise2\Domain\Order\Repository;
 use Gilbite\OOExercise2\Domain\Order\Summarizer\AmountTotal;
 
@@ -18,7 +18,7 @@ class Summarize
 
     public function sumAmount($from, $to)
     {
-        $range    = new Range(new \DateTimeImmutable($from), new \DateTimeImmutable($to));
+        $range    = new PlacedAtBetween(new \DateTimeImmutable($from), new \DateTimeImmutable($to));
         $orders   = $range->satisfyingOrdersFrom($this->orderRepository);
         $currency = $orders->summarize(new AmountTotal());
 

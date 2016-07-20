@@ -28,5 +28,10 @@ class Order
     {
         return $this->amount;
     }
+
+    public function placedAt()
+    {
+        return $this->placedAt;
+    }
 }
 
