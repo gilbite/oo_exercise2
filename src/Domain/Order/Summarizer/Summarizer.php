@@ -8,15 +8,6 @@ use Gilbite\OOExercise2\Domain\Currency\Currency;
 interface Summarizer
 {
     /**
-     * @param Order\Identity $id
-     * @param $otherData
-     * @param Currency $amount
-     * @param \DateTimeImmutable $placedAt
-     * @return mixed
-     */
-    public function select(Order\Identity $id, $otherData, Currency $amount, \DateTimeImmutable $placedAt);
-    
-    /**
      * @param Order\Order $order
      * @return void
      */

@@ -24,14 +24,9 @@ class Order
         $this->placedAt = $placedAt;
     }
 
-    public function expose(Summarizer $summarizer)
+    public function amount()
     {
-        return $summarizer->select(
-            $this->identity,
-            $this->data,
-            $this->amount,
-            $this->placedAt
-        );
+        return $this->amount;
     }
 }
 
